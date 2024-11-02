@@ -142,7 +142,7 @@ chmod 644 input_file
 
 1. 克隆代码仓库：
 ```bash
-git clone []
+git clone [https://github.com/zsm124/gpg_class_design.git]
 cd gpg-key-manager
 ```
 

@@ -63,7 +63,7 @@
 ## 运行效果展示
 
 ### 1. 密钥生成
-![密钥生成界面](static/key_gen.png)
+![密钥生成界面](output1/static/key_gen.png)
 ```plaintext
 示例输出：
 已生成4096位RSA密钥对
@@ -72,7 +72,7 @@
 ```
 
 ### 2. 文件加密
-![文件加密](static/encrypt_file.png)
+![文件加密](output1/static/encrypt_file.png)
 ```plaintext
 原始文件：example.txt (1.5MB)
 加密后文件：encrypt_file.gpg (1.51MB)
@@ -90,7 +90,7 @@
 ```
 
 ### 3. 签名验证
-![签名验证](static/verify_signature.png)
+![签名验证](output1/static/verify_signature.png)
 ```plaintext
 签名信息:
 - 签名者: cursor@qq.com
@@ -142,7 +142,7 @@ chmod 644 input_file
 
 1. 克隆代码仓库：
 ```bash
-git clone [仓库地址]
+git clone []
 cd gpg-key-manager
 ```
 

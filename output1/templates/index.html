@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>OpenPGP 加密系统</title>
+</head>
+<body>
+    <div class="container">       
+        <h1>OpenPGP 加密与签名系统</h1>
+        {% with messages = get_flashed_messages() %}
+          {% if messages %}
+            <div class="flash-message">
+              {% for message in messages %}
+                <p>{{ message }}</p>
+              {% endfor %}
+            </div>
+          {% endif %}
+        {% endwith %}
+
+        <h2>生成密钥对</h2>
+        <form action="{{ url_for('generate_key') }}" method="POST">
+            <label for="name_email">邮箱:</label>
+            <input type="email" id="name_email" name="name_email" placeholder="邮箱" required>
+            <label for="passphrase">密码短语:</label>
+            <input type="password" id="passphrase" name="passphrase" placeholder="密码短语" required>
+            <button type="submit">生成密钥</button>
+        </form>
+
+        <h2>文件加密</h2>
+        <form action="{{ url_for('encrypt_file') }}" method="POST" enctype="multipart/form-data">
+            <label for="recipient_email">加密邮箱:</label>
+            <input type="email" id="recipient_email" name="recipient_email" placeholder="加密邮箱" required>
+            <label for="file">选择文件:</label>
+            <input type="file" id="file" name="file" required>
+            <button type="submit">加密文件</button>
+        </form>
+
+        <h2>文件解密</h2>
+        <form action="{{ url_for('decrypt_file') }}" method="POST" enctype="multipart/form-data">
+            <label for="name_email">用户名/邮箱:</label>
+            <input type="text" id="name_email" name="name_email" required>
+            <label for="file">选择文件:</label>
+            <input type="file" id="file" name="file" required>
+            <label for="passphrase">密码短语:</label>
+            <input type="password" id="passphrase" name="passphrase" placeholder="密码短语" required>
+            <button type="submit">解密文件</button>
+        </form>
+
+        <h2>文件签名</h2>
+        <form action="{{ url_for('sign_file') }}" method="POST" enctype="multipart/form-data">
+            <label for="file">选择邮箱:</label>
+            <input type="email" id="name_email" name="name_email" placeholder="邮箱" required>
+            <label for="file">选择文件:</label>
+            <input type="file" id="file" name="file" required>
+            <label for="passphrase">密码短语:</label>
+            <input type="password" id="passphrase" name="passphrase" placeholder="密码短语" required>
+            <button type="submit">签名文件</button>
+        </form>
+
+        <h2>验证签名</h2>
+        <form action="{{ url_for('verify_signature') }}" method="POST" enctype="multipart/form-data">
+            <label for="file">选择文件:</label>
+            <input type="file" id="file" name="file" required>
+            <label for="signature">选择签名文件:</label>
+            <input type="file" id="signature" name="signature" required>
+            <button type="submit">验证签名</button>
+        </form>
+
+        <h2>密钥列表</h2>
+        <div>
+          <h3>已存密钥</h3>
+          <ul>
+            {% for key in keys %}
+              <li>{{ key.name_email }}</li>
+            {% endfor %}
+          </ul>
+        </div>
+    </div>
+</body>
+</html>

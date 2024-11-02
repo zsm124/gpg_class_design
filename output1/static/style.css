@@ -1,0 +1,147 @@
+/* 全局样式 */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f7f9;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: space-around;
+    background-color: #333;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+nav ul li {
+    display: inline;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    padding: 10px;
+}
+
+nav ul li a:hover {
+    background-color: #555;
+    border-radius: 5px;
+}
+
+
+h1 {
+    text-align: center;
+    color: #4A90E2;
+    font-size: 2em;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #E6E9ED;
+    padding-bottom: 10px;
+}
+
+/* 表单样式 */
+h2 {
+    color: #4A90E2;
+    font-size: 1.5em;
+    margin-top: 30px;
+    border-bottom: 1px solid #E6E9ED;
+    padding-bottom: 5px;
+}
+
+form {
+    margin-top: 10px;
+    padding: 15px 20px;
+    border: 1px solid #E6E9ED;
+    border-radius: 5px;
+    background-color: #F7F9FB;
+}
+
+/* 表单输入和按钮样式 */
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="file"],
+textarea,
+button {
+    margin: 10px 0;
+    padding: 10px;
+    font-size: 1em;
+    width: 100%;
+    border: 1px solid #DCE1E5;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="email"]:focus,
+textarea:focus {
+    border-color: #4A90E2;
+    outline: none;
+    box-shadow: 0 0 5px rgba(74, 144, 226, 0.3);
+}
+
+textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+button {
+    width: auto;
+    background-color: #4A90E2;
+    color: #fff;
+    font-size: 1em;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #357ABD;
+}
+
+/* 提示消息样式 */
+.flash-message {
+    padding: 15px;
+    margin-top: 20px;
+    background-color: #E5F6D5;
+    color: #4A772F;
+    border: 1px solid #C8E6A3;
+    border-radius: 4px;
+    text-align: center;
+    font-weight: bold;
+}
+
+/* 响应式设计 */
+@media (max-width: 600px) {
+    .container {
+        padding: 10px;
+    }
+
+    h1 {
+        font-size: 1.5em;
+    }
+
+    h2 {
+        font-size: 1.2em;
+    }
+
+    button {
+        width: 100%;
+        padding: 12px;
+    }
+}
